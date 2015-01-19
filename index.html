@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body{font-size: 45px;}
+        .container{position:relative;height:400px;width: 600px;margin: 0 auto;text-align: justify;word-wrap: break-word;}
+        .m,.s{color:#aaa}
+        
+        .reveal{height: 60px;
+width: 280px;
+text-align: center;
+line-height: 50px;
+background: #23B3F0;
+color: #fff;
+margin: 30px auto;
+cursor: pointer;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    
+    </div>
+    <div class="reveal">
+        Reveal string
+    </div>
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="jQuery.secretText.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".container").secretText({text: "Catch me if you can !!", chars:118});
+            $(".reveal").on('click',function(){
+                $('.s').css("color","#23B3F0");
+                $('.m').css();
+            });
+        });
+    </script>
+</body>
+</html>
