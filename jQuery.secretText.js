@@ -2,8 +2,8 @@
 
 		var pluginName = "secretText",
 			defaults = {
-				text: "secretText",
-                chars: 200
+				text: "secretText",//the text to be hidden
+                chars: 200//ength of the output
 		    };
 
 		// The actual plugin constructor
@@ -19,10 +19,8 @@
 		$.extend(Plugin.prototype, {
 				init: function () {
                     var textToInsert=this.randomText(this.settings);
-                    //this.injectText(this.settings.text);
-                    
                     $(this.element).html(textToInsert);
-                    this.fixText(this.settings,this.element);
+                    this.fixTextPosition(this.settings,this.element);
 				},
 				randomText: function (settings) {
 					var dictionary='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
@@ -52,7 +50,7 @@
                     //console.log(r);
                     return text;
                 },
-                fixText: function (settings,element) {
+                fixTextPosition: function (settings,element) {//this function will replace hidden characters with an absolute positionned chars, it will help  to animate the text
                     $(element).find(".s").each(function(){
                         var tmp=$(this).clone();
                         $(tmp).css({
@@ -62,7 +60,6 @@
                         });
                         $(element).append(tmp);
                         $(this).css("opacity","0");
-                        //console.log($(this).position().top+" "+$(this).position().left);
                     });
                 }
 		});
